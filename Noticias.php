@@ -63,7 +63,9 @@ require_once "Header.php";
                                 <?php echo $noticias["hora"]; ?></strong>
                         </a>
                         <p class="dark-grey-text"><?php echo $noticias['detalleLargo']; ?></p>
-
+                        <p class="dark-grey-text">  <i class="fab fa-github "></i> <a href="<?php echo $noticias['repositorio']; ?>" target="black"><?php echo $noticias['repositorio']; ?></a></p>
+                        
+                        
                     </strong>
                 </p>
                 <hr><br>

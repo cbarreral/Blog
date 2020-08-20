@@ -107,7 +107,8 @@ if (isset($_SESSION['pass'])) {
         <input type="text" name="titulo" id="titulo" placeholder="Titulo">
         <input type="text" name="detalle" id="detalle" placeholder="Detalle">
         <input type="text" name="autor" id="autor" placeholder="Autor">
-        <input type="text" name="foto" id="foto" placeholder="url foto"><br><br>
+        <input type="text" name="foto" id="foto" placeholder="url foto">
+        <input type="text" name="repositorio" id="repositorio" placeholder="repositorio"><br><br>
         <textarea type="text" name="descripcion" class="form-control" rows="2" id="descripcion" placeholder="Descripcion completa"></textarea>
         <input type="submit" name="bnt" class="btn blue-gradient btn-md mx-0 btn-rounded" value="Insertar">
         <input type="submit" name="bnt" class="btn peach-gradient btn-md mx-0 btn-rounded" value="Eliminar">
@@ -131,6 +132,7 @@ if (isset($_SESSION['pass'])) {
       <th scope="col">Fecha</th>
       <th scope="col">Hora</th>
       <th scope="col">Descripcion</th>
+      <th scope="col">Repositorio</th>
     </tr>
   </thead>
   <tbody> <?php
@@ -156,6 +158,7 @@ if (isset($_SESSION['pass'])) {
       <th ><?php echo $noticias['fecha']; ?></th>
       <th ><?php echo $noticias['hora']; ?></th>
       <th ><?php echo $noticias['detalleLargo']; ?></th>
+      <th ><?php echo $noticias['repositorio']; ?></th>
     </tr>
         <?php }?>
   </tbody>

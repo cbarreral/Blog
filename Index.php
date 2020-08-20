@@ -65,7 +65,7 @@ require_once "Conexion.php";
             </section>
         <?php } ?>
     </div>
-</body>
+</body> 
 
 
 <?php include_once "Footer.php" ?>

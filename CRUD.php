@@ -22,7 +22,7 @@
             <div class="row d-flex justify-content-center ">
                 <div class="col-md-6 ">
                     <p class="h5 mb-2 ">
-                        Este es mi Blog
+                        Mi Blog
                     </p>
                     <p class="mb-0 ">Las nuevas formas de interactuar con las tecnologias</p>
                 </div>
@@ -81,7 +81,7 @@ if (isset($_POST['bnt'])) {
     } else if ($bandera == 'Insertar') {
         if (
             isset($_POST['titulo']) && isset($_POST['detalle']) && isset($_POST['autor'])
-            && isset($_POST['descripcion']) && isset($_POST['foto'])
+            && isset($_POST['descripcion']) && isset($_POST['foto']) && isset($_POST['repositorio'])
         ) {
 
             $titulo = $_POST['titulo'];
@@ -91,6 +91,7 @@ if (isset($_POST['bnt'])) {
             $foto = $_POST['foto'];
             $fecha = date('Y/m/d');
             $hora = date("H:i:s", time() + 18000);
+            $repositorio = $_POST['repositorio'];
             echo $hora;
             if (mysqli_num_rows($result) > 0) {
                 // Si es mayor a cero imprimimos que ya existe el usuario
@@ -105,7 +106,7 @@ if (isset($_POST['bnt'])) {
                     echo "Ya existe el registro que intenta registrar";
                 } else {
                     //print_r($_POST);
-                    $sql = "INSERT INTO noticias(titulo,detalle,autor,fecha,hora,detalleLargo,foto) VALUES('$titulo','$detalle','$autor','$fecha','$hora','$descripcion','$foto')";
+                    $sql = "INSERT INTO noticias(titulo,detalle,autor,fecha,hora,detalleLargo,foto,repositorio) VALUES('$titulo','$detalle','$autor','$fecha','$hora','$descripcion','$foto','$repositorio')";
                     if ($conexion->query($sql) == true) {
                         echo "OK";
                         header("Location: Crud_Post.php");
@@ -119,7 +120,7 @@ if (isset($_POST['bnt'])) {
     } else if ($bandera == 'Editar') {
         if (
             isset($_POST['id']) && isset($_POST['titulo']) && isset($_POST['detalle']) && isset($_POST['autor'])
-            && isset($_POST['descripcion']) && isset($_POST['foto'])
+            && isset($_POST['descripcion']) && isset($_POST['foto'])&& isset($_POST['repositorio'])
         ) {
             $idE = $_POST['id'];
             $tituloE = $_POST['titulo'];
@@ -127,10 +128,11 @@ if (isset($_POST['bnt'])) {
             $autorE = $_POST['autor'];
             $descripcionE = $_POST['descripcion'];
             $fotoE = $_POST['foto'];
+            $repositorioE = $_POST['repositorio'];
             $fechaE = date('Y/m/d');
             $horaE = date("H:i:s", time() + 18000);
             echo $hora;
-            $sql = "UPDATE noticias SET titulo ='$tituloE',detalle ='$detalleE',autor ='$autorE',fecha ='$fechaE',hora ='$horaE',detalleLargo ='$descripcionE', foto ='$fotoE' WHERE id = '$idE'";
+            $sql = "UPDATE noticias SET titulo ='$tituloE',detalle ='$detalleE',autor ='$autorE',fecha ='$fechaE',hora ='$horaE',detalleLargo ='$descripcionE', foto ='$fotoE', repositorio= '$repositorioE' WHERE id = '$idE'";
             if ($conexion->query($sql) == true) {
                 echo "OK";
                 header("Location: Crud_Post.php");
